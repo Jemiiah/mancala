@@ -1353,6 +1353,436 @@
       "kind": "DojoModel",
       "members": [
         {
+          "name": "game_id",
+          "type": "u128",
+          "key": true
+        },
+        {
+          "name": "player_one",
+          "type": "ContractAddress",
+          "key": false
+        },
+        {
+          "name": "player_two",
+          "type": "ContractAddress",
+          "key": false
+        },
+        {
+          "name": "current_player",
+          "type": "ContractAddress",
+          "key": false
+        },
+        {
+          "name": "winner",
+          "type": "ContractAddress",
+          "key": false
+        },
+        {
+          "name": "score",
+          "type": "u8",
+          "key": false
+        },
+        {
+          "name": "is_finished",
+          "type": "bool",
+          "key": false
+        },
+        {
+          "name": "p1_pit1",
+          "type": "u8",
+          "key": false
+        },
+        {
+          "name": "p1_pit2",
+          "type": "u8",
+          "key": false
+        },
+        {
+          "name": "p1_pit3",
+          "type": "u8",
+          "key": false
+        },
+        {
+          "name": "p1_pit4",
+          "type": "u8",
+          "key": false
+        },
+        {
+          "name": "p1_pit5",
+          "type": "u8",
+          "key": false
+        },
+        {
+          "name": "p1_pit6",
+          "type": "u8",
+          "key": false
+        },
+        {
+          "name": "p2_pit1",
+          "type": "u8",
+          "key": false
+        },
+        {
+          "name": "p2_pit2",
+          "type": "u8",
+          "key": false
+        },
+        {
+          "name": "p2_pit3",
+          "type": "u8",
+          "key": false
+        },
+        {
+          "name": "p2_pit4",
+          "type": "u8",
+          "key": false
+        },
+        {
+          "name": "p2_pit5",
+          "type": "u8",
+          "key": false
+        },
+        {
+          "name": "p2_pit6",
+          "type": "u8",
+          "key": false
+        },
+        {
+          "name": "p1_store",
+          "type": "u256",
+          "key": false
+        },
+        {
+          "name": "p2_store",
+          "type": "u256",
+          "key": false
+        }
+      ],
+      "class_hash": "0x39129a3b0e1c0d0e4e367aa51e216966ff1305df64c73d7ccf3601979c096e9",
+      "original_class_hash": "0x39129a3b0e1c0d0e4e367aa51e216966ff1305df64c73d7ccf3601979c096e9",
+      "abi": [
+        {
+          "type": "impl",
+          "name": "DojoModelImpl",
+          "interface_name": "dojo::model::IDojoModel"
+        },
+        {
+          "type": "struct",
+          "name": "core::array::Span::<core::integer::u8>",
+          "members": [
+            {
+              "name": "snapshot",
+              "type": "@core::array::Array::<core::integer::u8>"
+            }
+          ]
+        },
+        {
+          "type": "struct",
+          "name": "core::array::Span::<core::felt252>",
+          "members": [
+            {
+              "name": "snapshot",
+              "type": "@core::array::Array::<core::felt252>"
+            }
+          ]
+        },
+        {
+          "type": "struct",
+          "name": "core::array::Span::<core::array::Span::<core::felt252>>",
+          "members": [
+            {
+              "name": "snapshot",
+              "type": "@core::array::Array::<core::array::Span::<core::felt252>>"
+            }
+          ]
+        },
+        {
+          "type": "struct",
+          "name": "dojo::database::introspect::Struct",
+          "members": [
+            {
+              "name": "name",
+              "type": "core::felt252"
+            },
+            {
+              "name": "attrs",
+              "type": "core::array::Span::<core::felt252>"
+            },
+            {
+              "name": "children",
+              "type": "core::array::Span::<core::array::Span::<core::felt252>>"
+            }
+          ]
+        },
+        {
+          "type": "struct",
+          "name": "core::array::Span::<(core::felt252, core::array::Span::<core::felt252>)>",
+          "members": [
+            {
+              "name": "snapshot",
+              "type": "@core::array::Array::<(core::felt252, core::array::Span::<core::felt252>)>"
+            }
+          ]
+        },
+        {
+          "type": "struct",
+          "name": "dojo::database::introspect::Enum",
+          "members": [
+            {
+              "name": "name",
+              "type": "core::felt252"
+            },
+            {
+              "name": "attrs",
+              "type": "core::array::Span::<core::felt252>"
+            },
+            {
+              "name": "children",
+              "type": "core::array::Span::<(core::felt252, core::array::Span::<core::felt252>)>"
+            }
+          ]
+        },
+        {
+          "type": "enum",
+          "name": "dojo::database::introspect::Ty",
+          "variants": [
+            {
+              "name": "Primitive",
+              "type": "core::felt252"
+            },
+            {
+              "name": "Struct",
+              "type": "dojo::database::introspect::Struct"
+            },
+            {
+              "name": "Enum",
+              "type": "dojo::database::introspect::Enum"
+            },
+            {
+              "name": "Tuple",
+              "type": "core::array::Span::<core::array::Span::<core::felt252>>"
+            },
+            {
+              "name": "Array",
+              "type": "core::integer::u32"
+            }
+          ]
+        },
+        {
+          "type": "interface",
+          "name": "dojo::model::IDojoModel",
+          "items": [
+            {
+              "type": "function",
+              "name": "name",
+              "inputs": [],
+              "outputs": [
+                {
+                  "type": "core::felt252"
+                }
+              ],
+              "state_mutability": "view"
+            },
+            {
+              "type": "function",
+              "name": "unpacked_size",
+              "inputs": [],
+              "outputs": [
+                {
+                  "type": "core::integer::u32"
+                }
+              ],
+              "state_mutability": "view"
+            },
+            {
+              "type": "function",
+              "name": "packed_size",
+              "inputs": [],
+              "outputs": [
+                {
+                  "type": "core::integer::u32"
+                }
+              ],
+              "state_mutability": "view"
+            },
+            {
+              "type": "function",
+              "name": "layout",
+              "inputs": [],
+              "outputs": [
+                {
+                  "type": "core::array::Span::<core::integer::u8>"
+                }
+              ],
+              "state_mutability": "view"
+            },
+            {
+              "type": "function",
+              "name": "schema",
+              "inputs": [],
+              "outputs": [
+                {
+                  "type": "dojo::database::introspect::Ty"
+                }
+              ],
+              "state_mutability": "view"
+            }
+          ]
+        },
+        {
+          "type": "impl",
+          "name": "mancala_gameImpl",
+          "interface_name": "mancala::models::game::Imancala_game"
+        },
+        {
+          "type": "enum",
+          "name": "core::bool",
+          "variants": [
+            {
+              "name": "False",
+              "type": "()"
+            },
+            {
+              "name": "True",
+              "type": "()"
+            }
+          ]
+        },
+        {
+          "type": "struct",
+          "name": "core::integer::u256",
+          "members": [
+            {
+              "name": "low",
+              "type": "core::integer::u128"
+            },
+            {
+              "name": "high",
+              "type": "core::integer::u128"
+            }
+          ]
+        },
+        {
+          "type": "struct",
+          "name": "mancala::models::game::MancalaGame",
+          "members": [
+            {
+              "name": "game_id",
+              "type": "core::integer::u128"
+            },
+            {
+              "name": "player_one",
+              "type": "core::starknet::contract_address::ContractAddress"
+            },
+            {
+              "name": "player_two",
+              "type": "core::starknet::contract_address::ContractAddress"
+            },
+            {
+              "name": "current_player",
+              "type": "core::starknet::contract_address::ContractAddress"
+            },
+            {
+              "name": "winner",
+              "type": "core::starknet::contract_address::ContractAddress"
+            },
+            {
+              "name": "score",
+              "type": "core::integer::u8"
+            },
+            {
+              "name": "is_finished",
+              "type": "core::bool"
+            },
+            {
+              "name": "p1_pit1",
+              "type": "core::integer::u8"
+            },
+            {
+              "name": "p1_pit2",
+              "type": "core::integer::u8"
+            },
+            {
+              "name": "p1_pit3",
+              "type": "core::integer::u8"
+            },
+            {
+              "name": "p1_pit4",
+              "type": "core::integer::u8"
+            },
+            {
+              "name": "p1_pit5",
+              "type": "core::integer::u8"
+            },
+            {
+              "name": "p1_pit6",
+              "type": "core::integer::u8"
+            },
+            {
+              "name": "p2_pit1",
+              "type": "core::integer::u8"
+            },
+            {
+              "name": "p2_pit2",
+              "type": "core::integer::u8"
+            },
+            {
+              "name": "p2_pit3",
+              "type": "core::integer::u8"
+            },
+            {
+              "name": "p2_pit4",
+              "type": "core::integer::u8"
+            },
+            {
+              "name": "p2_pit5",
+              "type": "core::integer::u8"
+            },
+            {
+              "name": "p2_pit6",
+              "type": "core::integer::u8"
+            },
+            {
+              "name": "p1_store",
+              "type": "core::integer::u256"
+            },
+            {
+              "name": "p2_store",
+              "type": "core::integer::u256"
+            }
+          ]
+        },
+        {
+          "type": "interface",
+          "name": "mancala::models::game::Imancala_game",
+          "items": [
+            {
+              "type": "function",
+              "name": "ensure_abi",
+              "inputs": [
+                {
+                  "name": "model",
+                  "type": "mancala::models::game::MancalaGame"
+                }
+              ],
+              "outputs": [],
+              "state_mutability": "view"
+            }
+          ]
+        },
+        {
+          "type": "event",
+          "name": "mancala::models::game::mancala_game::Event",
+          "kind": "enum",
+          "variants": []
+        }
+      ],
+      "name": "mancala::models::game::mancala_game"
+    },
+    {
+      "kind": "DojoModel",
+      "members": [
+        {
           "name": "player",
           "type": "ContractAddress",
           "key": true
